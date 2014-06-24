@@ -1,2 +1,2 @@
-android_device_samsung_e120l-slim
+android_device_samsung_e120l-slim 
 =================================
