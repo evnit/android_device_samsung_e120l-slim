@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2011 The CyanogenMod Project
+# Copyright (C) 2014 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,41 +14,32 @@
 # limitations under the License.
 #
 
-## (2) Also get non-open-source specific aspects if available
+# Get non-open-source specific aspects if available
 $(call inherit-product-if-exists, vendor/samsung/e120l/e120l-vendor.mk)
 
-## overlays
-DEVICE_PACKAGE_OVERLAYS += device/samsung/e120l/overlay
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-# Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=320
-
-# GPS
-PRODUCT_PACKAGES += \
-    gps.msm8660
-
-GPS_CONF := device/samsung/e120l/gps/gps.conf
-
-PRODUCT_COPY_FILES += \
-    $(GPS_CONF):/system/etc/gps.conf
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 720
+PRODUCT_PROPERTY_OVERRIDES += ro.sf.lcd_density=320
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    device/samsung/e120l/ramdisk/init.qcom.usb.rc:root/init.qcom.usb.rc
+    $(LOCAL_PATH)/ramdisk/init.qcom.usb.rc:root/init.qcom.usb.rc \
+    $(LOCAL_PATH)/ramdisk/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
+    $(LOCAL_PATH)/ramdisk/init.qcom.class_main.sh:root/init.qcom.class_main.sh \
+    $(LOCAL_PATH)/ramdisk/init.qcom.early_boot.sh:root/init.qcom.early_boot.sh \
+    $(LOCAL_PATH)/ramdisk/init.qcom.lpm_boot.sh:root/init.qcom.lpm_boot.sh \
+    $(LOCAL_PATH)/ramdisk/init.qcom.sh:root/init.qcom.sh \
+    $(LOCAL_PATH)/ramdisk/init.target.rc:root/init.target.rc \
+    $(LOCAL_PATH)/ramdisk/init.qcom.usb.sh:root/init.qcom.usb.sh
 
-# BT firmware
+# Bluetooth
 PRODUCT_COPY_FILES += \
-    device/samsung/e120l/firmware/bcm4330B1.hcd:system/etc/firmware/bcm4330B1.hcd
-
-# init.d scripts
-PRODUCT_COPY_FILES += \
-    device/samsung/e120l/root/system/etc/init.d/91fixoverlays:system/etc/init.d/91fixoverlays
+    $(LOCAL_PATH)/firmware/bcm4330B1.hcd:system/etc/firmware/bcm4330B1.hcd
 
 # Inherit from celox-common
 $(call inherit-product, device/samsung/celox-common/celox-common.mk)
-
-$(call inherit-product-if-exists, vendor/samsung/e120l/e120l-vendor.mk)

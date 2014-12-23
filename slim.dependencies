@@ -1,21 +1,16 @@
 [
   {
-    "repository": "evnit/android_vendor_samsung_e120l",
-    "target_path": "vendor/samsung/e120l",
-    "branch": "cm-11.0"
-  },
-  {
-    "repository": "SlimRoms/device_samsung_qcom-common",
+    "repository": "evnit/android_device_samsung_qcom-common",
     "target_path": "device/samsung/qcom-common",
     "branch": "kk4.4"
   },
   {
-    "repository": "SlimRoms/device_samsung_msm8660-common",
+    "repository": "evnit/android_device_samsung_msm8660-common",
     "target_path": "device/samsung/msm8660-common",
     "branch": "kk4.4"
   },
   {
-    "repository": "SlimRoms/device_samsung_celox-common",
+    "repository": "evnit/android_device_samsung_celox-common",
     "target_path": "device/samsung/celox-common",
     "branch": "kk4.4"
   },
@@ -30,8 +25,13 @@
     "branch": "kk4.4"
   },
   {
+    "repository": "SlimRoms/hardware_qcom_media-caf",
+    "target_path": "hardware/qcom/media-caf",
+    "branch": "kk4.4"
+  },
+  {
     "repository": "evnit/android_kernel_samsung_msm8660-common",
     "target_path": "kernel/samsung/msm8660-common",
-    "branch": "cm-11.0"
+    "branch": "kk4.4"
   }
 ]
